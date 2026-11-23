@@ -151,7 +151,7 @@ footer{padding:28px;text-align:center;font-size:.9rem;color:#6a6a5e}
 
 <script>
 // ===== EDIT THESE =====
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3KLgMAmCqANr6nQ1Uj1v8LVU0ypPxpZg_59DGQEcz5rR9iDfy2Nrp37GnHicxliDU/exec";
+const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
 const WEDDING = new Date("2026-12-28T08:00:00+07:00");
 // ======================
 
@@ -159,7 +159,10 @@ const $ = id => document.getElementById(id);
 
 // Guest name from link: index.html?to=Budi+Santoso
 const to = new URLSearchParams(location.search).get("to");
-if (to) $("guest").textContent = to;
+if (to) {
+  $("guest").textContent = to;
+  document.querySelector('#form [name=name]').value = to; // guest doesn't have to retype their name
+}
 
 // Photos: put files in a "foto" folder next to index.html. Missing files show an empty frame.
 const PHOTOS = ["foto/1.jpg","foto/2.jpg","foto/3.jpg","foto/4.jpg","foto/5.jpg","foto/6.jpg"];
